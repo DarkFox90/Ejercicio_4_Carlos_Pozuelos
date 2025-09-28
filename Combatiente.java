@@ -50,4 +50,13 @@ public class Combatiente {
     public String mostrarMensaje() {
         return nombre + " va a luchar con " + puntosVida + " HP y " + defensa + " DEF ";
     }
+
+    //añadí metodos helpers para poder aumentar el ataque y defensa del personaje
+    public void aumentarAtaque(int cantidad) {
+        this.poderAtaque += cantidad;
+    }
+
+    public void aumentarDefensa(int cantidad) {
+        this.defensa += cantidad;
+    }
 }
