@@ -22,11 +22,11 @@ public class Combatiente {
         return puntosVida;
     }
 
-    public void Atacar(Combatiente oponente) {
+    public void Atacar(Combatiente oponente) { //añadi combatiente para identeificar a quien se le baja la vida
         oponente.reducirVida(this.poderAtaque);
     }
 
-    public void reducirVida(int cantidad) {
+    public void reducirVida(int cantidad) { //cambie poderAtaque por cantidad para que sea más facil de identificar cuanto daño
         this.puntosVida -= cantidad;
         if (this.puntosVida < 0) {
             this.puntosVida = 0;
