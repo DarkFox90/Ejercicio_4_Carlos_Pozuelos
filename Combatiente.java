@@ -3,11 +3,13 @@ public class Combatiente {
     public String nombre;
     public int puntosVida;
     public int poderAtaque;
+    public int defensa;
 
-    public Combatiente(String nombre, int puntosVida, int poderAtaque) {
+    public Combatiente(String nombre, int puntosVida, int poderAtaque, int defensa) {
         this.nombre = nombre;
         this.puntosVida = puntosVida;
         this.poderAtaque = poderAtaque;
+        this.defensa = defensa;
     }
 
     public String getNombre() {
@@ -22,14 +24,30 @@ public class Combatiente {
         return puntosVida;
     }
 
+    public int getDefensa() {
+        return defensa;
+    }
+
     public void Atacar(Combatiente oponente) { //añadi combatiente para identeificar a quien se le baja la vida
         oponente.reducirVida(this.poderAtaque);
     }
 
     public void reducirVida(int cantidad) { //cambie poderAtaque por cantidad para que sea más facil de identificar cuanto daño
-        this.puntosVida -= cantidad;
+        int dañoTotal = cantidad - this.defensa;
+        if (dañoTotal < 0) {
+            dañoTotal = 0; //evita que haya daño negativo
+        }
+
+        //se le resta a la vida el daño total hecho
+        this.puntosVida -= dañoTotal;
+
         if (this.puntosVida < 0) {
             this.puntosVida = 0;
         }
+    }
+
+    //añadí esta funcion para que despliegue un mensaje cuando va a empezar la pelea
+    public String mostrarMensaje() {
+        return nombre + " va a luchar con " + puntosVida + " HP y " + defensa + " DEF ";
     }
 }
