@@ -1,0 +1,4 @@
+//vista
+public class Menu {
+    
+}

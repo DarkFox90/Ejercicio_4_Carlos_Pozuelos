@@ -1,0 +1,4 @@
+//modelo
+public class HabilidadEspecial {
+    
+}
