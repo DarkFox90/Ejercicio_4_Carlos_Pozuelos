@@ -28,7 +28,7 @@ public class Combatiente {
         return defensa;
     }
 
-    public void Atacar(Combatiente oponente) { //añadi combatiente para identeificar a quien se le baja la vida
+    public void atacar(Combatiente oponente) { //añadi combatiente para identeificar a quien se le baja la vida
         oponente.reducirVida(this.poderAtaque);
     }
 

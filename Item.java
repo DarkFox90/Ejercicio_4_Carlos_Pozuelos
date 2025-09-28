@@ -25,11 +25,11 @@ public class Item {
     //funcion que chequea que casos utilizar dependiendo del item usado
     public void usarItem(Combatiente objetivo) {
         switch (tipo) {
-            case "curar":
-                objetivo.reducirVida(-cantidad);
+            case "curacion":
+                objetivo.reducirVida(-cantidad); //le resta el daño negativo para curar
                 break;
             case "aumentarAtaque":
-                objetivo.aumentarAtaque(cantidad);
+                objetivo.aumentarAtaque(cantidad); //aumenta el ataque actual del personaje
                 break;
             case "aumetarDefensa":
                 objetivo.aumentarDefensa(cantidad);
