@@ -5,8 +5,8 @@ public class Heroe extends Combatiente {
     private String rol;
     private ArrayList<Item> inventario;
 
-    public Heroe(String nombre, int salud, int ataque, int defensa, String rol, ArrayList<Item> inventario) {
-        super(nombre, salud, ataque, defensa); //super para llamar al constructor padre
+    public Heroe(String nombre, int puntosVida, int poderAtaque, int defensa, String rol, ArrayList<Item> inventario) {
+        super(nombre, puntosVida, poderAtaque, defensa); //super para llamar al constructor padre
         this.rol = rol;
         this.inventario = new ArrayList<>();
     }
