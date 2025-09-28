@@ -1,4 +1,4 @@
 //modelo
-public class menuHeroe {
+public class menuHeroe extends Menu {
     
 }

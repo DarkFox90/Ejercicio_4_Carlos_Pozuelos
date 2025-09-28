@@ -1,4 +1,4 @@
 //modelo
-public class Villano {
+public class Villano extends Combatiente {
     
 }
