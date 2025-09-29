@@ -24,11 +24,11 @@ public class Main {
         System.out.println("2. explorador (menos vida y mas items)");
         int opcionDeRol = sc.nextInt();
 
-        ArrayList<Item> inventario = new ArrayList<>();
+        ArrayList<Item> inventario = new ArrayList<>(); //creacion de inventario para que lo utilizen los personajes
         Heroe heroe;
 
         if(opcionDeRol == 1) {
-            heroe = new Heroe("jugador1", 100, 50, 15, "Guerrero", inventario);
+            heroe = new Heroe("jugador1", 100, 50, 15, "Guerrero", inventario); //aqui se decide que rol va a tener el usuario
             heroe.agregarItem(new Item("mini", "curacion", 15));
         } else {
             heroe = new Heroe("jugador2", 90, 20, 5, "explorador", inventario);
@@ -38,12 +38,12 @@ public class Main {
         }
 
         //creacion de villanos
-        int cantidadEnemigos = rnd.nextInt(3) + 1;
-        ArrayList<Villano> villanos = new ArrayList<>();
+        int cantidadEnemigos = rnd.nextInt(3) + 1; //se generan enemigos en un rango de 1 a 3
+        ArrayList<Villano> villanos = new ArrayList<>(); //se crea un array para ir guandando los villanos que se generan
 
         for (int i = 1; i <= cantidadEnemigos; i++) {
             HabilidadEspecial hab = new HabilidadEspecial("fuego", 10 + rnd.nextInt(20)); //genera un numero aleatorio de poder para cada villano
-            Villano v = new Villano("Villano" + i, 80 + rnd.nextInt(41), 10 + rnd.nextInt(6), 10, "lacayo", hab);
+            Villano v = new Villano("Villano" + i, 80 + rnd.nextInt(41), 10 + rnd.nextInt(6), 10, "lacayo", hab); //aqui se utiliza random para que cada villano tenga una vida unica y un daño unico
             Villano j = new Villano("Villano" + i, 150 + rnd.nextInt(41), 10 + rnd.nextInt(6), 10, "jefe", hab);
             villanos.add(v);
         }
@@ -56,7 +56,7 @@ public class Main {
         System.out.println("\nEmpieza la batalla entre heroes y villanos");
         System.out.println(heroe.mostrarMensaje());
         for (Villano v : villanos) {
-            System.out.println(v.mostrarMensaje());
+            System.out.println(v.mostrarMensaje()); //muestra el mensaje por cada villano
         }
 
         //logica del combate
@@ -65,7 +65,7 @@ public class Main {
             System.out.println(heroe.getNombre() + " HP: " + heroe.getPuntosVida());
             for(Villano v : villanos) {
                 System.out.println(v.getNombre() + " HP: " + v.getPuntosVida());
-            }
+            } //muestra el estado de cada personaje cada vez que pasan los turnos
 
             //manejo de turnos 
             System.out.println("\nturno del heroe");
@@ -76,7 +76,7 @@ public class Main {
                 System.out.println("elige algun enemigo a atacar: ");
                 for (int i = 0; i < villanos.size(); i++) {
                     System.out.println((i +1) + ". " + villanos.get(i).getNombre());
-                }
+                } //si el usuario selecciona 1, le pregunta a quien quiere atacar
 
                 int indice = sc.nextInt() -1;
                 if (indice >= 0 && indice < villanos.size()) {
@@ -87,7 +87,7 @@ public class Main {
             }
 
             // limpiar area de pelea
-            villanos.removeIf(v -> v.getPuntosVida() <= 0);
+            villanos.removeIf(v -> v.getPuntosVida() <= 0); //aqui se eliminan todos los villanos que sus puntos de vida son 0
             if(villanos.isEmpty()) {
                 System.out.println("Ganaron los heroes");
                 break;
